@@ -1,0 +1,9 @@
+.footer {
+    background-color: #111827;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: Montserrat;
+}

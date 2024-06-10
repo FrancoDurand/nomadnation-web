@@ -1,0 +1,58 @@
+.offercard {
+    display: flex;
+    flex-direction: column;
+    width: 415px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.offercard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.offercard__image--container {
+    width: 415px;
+    height: 190px;
+
+}
+
+.offercard__image-container .embla {
+    width: 415px;
+    height: 190px;
+}
+
+.offercard__image-container .embla img {
+    width: 415px;
+    height: 190px;
+    object-fit: fill;
+}
+
+.offercard__info {
+    font-family: Roboto;
+    background-color: #fff;
+    height: 155px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 15px;
+}
+
+.offercard__title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.offercard__description {
+    color: #4b5563;
+}
+
+.offercard__price {
+    font-weight: bold;
+}
+
+.offercard__description .offercard__price {
+    font-family: 16px;
+}

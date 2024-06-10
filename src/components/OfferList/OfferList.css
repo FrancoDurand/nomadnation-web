@@ -1,0 +1,15 @@
+.offer__title {
+    margin-top: 50px;
+    margin-left: 283px;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.offerlist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    margin: 50px 100px;
+    justify-content: center;
+}

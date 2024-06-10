@@ -1,0 +1,21 @@
+.hero {
+    background-color: #111827;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero__image-container {
+    width: 71.35vw;
+    height: 52.23vh;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hero__image-container .embla img {
+    width: 71.35vw;
+    height: 52.23vh;
+    /* 480px; */
+    object-fit: cover;
+}
