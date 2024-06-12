@@ -27,5 +27,10 @@
 .form__inputs {
     display: flex;
     flex-direction: column;
-    gap: 30px
+    gap: 15px;
+    max-height: 110px
+}
+
+.form__control {
+    min-height: 66px;
 }
