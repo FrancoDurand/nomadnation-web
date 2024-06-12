@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import "./Header.css";
 
-const loginStyles = {
+const registerStyles = {
     bg: "#edf2f7",
     color: "#18181c",
     fontFamily: "Roboto",
@@ -10,7 +10,7 @@ const loginStyles = {
     }
 }
 
-const registerStyles = {
+const loginStyles = {
     bg: "#18181c",
     color: "#fff",
     fontFamily: "Roboto",
@@ -22,7 +22,7 @@ const registerStyles = {
 export function Header() {
     return (
         <header className="header">
-            <h1 className="header__title">NomadNation</h1>
+            <h1 className="header__title" ><a href="/">NomadNation</a></h1>
             <div className="header__buttons">
                 <a href="/login">
                     <Button {...loginStyles}>Iniciar sesión</Button>
