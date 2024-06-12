@@ -19,7 +19,9 @@ export class UserService extends ApiService {
             const response = await fetch(requestURL, requestOptions);
 
             if (!response.ok) {
-                throw new Error('Invalid credentials');
+                const error = new Error('Invalid credentials');
+                error.name = 'LoginError';
+                throw error;
             }
 
             const data = response.json();
