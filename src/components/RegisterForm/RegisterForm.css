@@ -1,0 +1,40 @@
+.form__container {
+    display: flex;
+    justify-content: center;
+    background-color: #edf2f7;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 75vh;
+    width: 30%;
+    font-family: Montserrat;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.form__title {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.form__inputs-register {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.form__inputs-avatar {
+    margin: 0 0 30px 0;
+}
+
+.form__control {
+    min-height: 66px;
+}
