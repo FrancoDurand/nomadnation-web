@@ -3,7 +3,7 @@ interface IUser {
     name: string;
     email: string;
     password?: string;
-    profilePic?: string;
+    profilePic?: string | File;
 }
 
 export default IUser;
