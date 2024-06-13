@@ -1,3 +1,3 @@
 export class ApiService {
-    static URL: string = "http://localhost:3000"
+    static URL: string = "https://nomadnation-api-gateway.onrender.com"
 }
