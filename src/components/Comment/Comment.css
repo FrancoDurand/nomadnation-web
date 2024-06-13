@@ -1,0 +1,36 @@
+.comment-section {
+    background-color: #f3f4f6;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment-section__title {
+    font-weight: 600;
+}
+
+.comment {
+    display: flex;
+    /* flex-direction: column; */
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.comment__info {
+    display: flex;
+    flex-direction: column;
+    /* gap: 5px; */
+}
+
+.comment__author-name {
+    font-weight: 600;
+}
+
+.comment__text {
+    /* margin-top: 5px; */
+    font-family: Roboto;
+    color: #4B5563;
+    /* margin-left: 55px; */
+}

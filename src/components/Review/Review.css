@@ -1,0 +1,39 @@
+.review {
+    display: flex;
+    flex-direction: column;
+    margin: 0 25%;
+    font-family: Montserrat;
+    gap: 50px;
+}
+
+.review__title {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.review__card .review__author {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.review__card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.review__card-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.review__post {
+    font-family: Roboto;
+    font-size: 16px;
+    color: #4B5563;
+}
