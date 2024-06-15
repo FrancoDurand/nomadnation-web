@@ -1,6 +1,7 @@
 import IComment from "../interfaces/icomment";
 import IMedia from "../interfaces/imedia";
 import IReview from "../interfaces/ireview";
+import IReviewPost from "../interfaces/ireviewpost";
 import { ApiService } from "./api-service";
 import { UserService } from "./user-service";
 
@@ -43,8 +44,6 @@ export class ReviewService extends ApiService {
 
             const reviewData: IReview[] = await response.json();
 
-
-
             reviewData.forEach((review: IReview) => {
                 review.author.profilePic = UserService.getImage(review.author.profilePic as string);
 
@@ -57,10 +56,31 @@ export class ReviewService extends ApiService {
                 });
             });
 
+            return reviewData;
+        }
+        catch (e: any) {
+            console.error(e.message);
+        }
+    }
+
+    static async comment(comment: IReviewPost) {
+        const requestURL = ReviewService.URL + "/comment";
+
+        try {
+            const requestOptions: RequestInit = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(comment)
+            };
+            await fetch(requestURL, requestOptions);
+
+            /* const reviewData: IReview = await response.json();
 
             console.log(reviewData)
 
-            return reviewData;
+            return reviewData; */
         }
         catch (e: any) {
             console.error(e.message);
