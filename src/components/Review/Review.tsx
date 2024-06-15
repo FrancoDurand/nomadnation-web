@@ -23,7 +23,7 @@ export function Review() {
 
     return (
         <div className="review">
-            <h2 className="review__title">Reseñas</h2>
+            <h2>Reseñas</h2>
             {
                 reviewData?.map(review =>
                     <div className="review__card">
@@ -31,8 +31,9 @@ export function Review() {
                             <Avatar src={review.author.profilePic as string} />
                             <h3 className="review__author">{review.author.name}</h3>
                         </div>
+                        <h3 className="review__title">{review.title}</h3>
                         <p className="review__post">{review.post}</p>
-                        <Comment commentsData={review.comments} />
+                        <Comment reviewId={review._id as string} commentsData={review.comments} />
                         {/* {
                             review.media.map(img =>
                                 <img src={img.route}></img>
