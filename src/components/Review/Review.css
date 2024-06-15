@@ -1,14 +1,20 @@
 .review {
     display: flex;
     flex-direction: column;
-    margin: 0 25%;
+    margin: 0px 25%;
     font-family: Montserrat;
     gap: 50px;
 }
 
-.review__title {
+.review h2 {
     font-weight: 600;
     font-size: 30px;
+    margin-bottom: -15px;
+}
+
+.review__title {
+    font-weight: 550;
+    font-size: 24px;
 }
 
 .review__card .review__author {
