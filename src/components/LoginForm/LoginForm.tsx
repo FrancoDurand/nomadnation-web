@@ -39,8 +39,10 @@ export function LoginForm() {
             const user = { email, password };
             const response: IUser = await UserService.login(user);
 
-            if (response && response._id) {
+            if (response && response._id && response.name && response.profilePic) {
                 sessionStorage.setItem('userId', response._id);
+                sessionStorage.setItem('userName', response.name);
+                sessionStorage.setItem('userProfilePic', UserService.getImage(response.profilePic as string));
             }
 
             navigate("/");
