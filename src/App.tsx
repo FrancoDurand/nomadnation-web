@@ -5,7 +5,7 @@ import { Header } from './components/Header/Header'
 import { Home } from './pages/Home'
 import { LoginForm } from './components/LoginForm/LoginForm'
 import { RegisterForm } from './components/RegisterForm/RegisterForm'
-import { Offer } from './pages/Offer'
+import { Offer } from './pages/Offer/Offer'
 
 export function App() {
   return (
