@@ -4,6 +4,7 @@
     margin: 0px 25%;
     font-family: Montserrat;
     gap: 50px;
+    margin-bottom: 25px;
 }
 
 .review h2 {
@@ -42,4 +43,20 @@
     font-family: Roboto;
     font-size: 16px;
     color: #4B5563;
+}
+
+.review__card-image {
+    width: 850px;
+    height: 430px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+    align-self: center;
+}
+
+.review__card-image .embla img {
+    width: 850px;
+    height: 430px;
+    object-position: center;
+    object-fit: fill;
 }

@@ -5,6 +5,11 @@ import { ReviewService } from "../../services/review-service";
 import { Avatar } from "@chakra-ui/react";
 import "./Review.css"
 import { Comment } from "../Comment/Comment";
+import { EmblaCarousel } from "../Carousel/Carousel";
+
+const options = {
+    loop: true
+}
 
 export function Review() {
     const { id } = useParams();
@@ -33,12 +38,13 @@ export function Review() {
                         </div>
                         <h3 className="review__title">{review.title}</h3>
                         <p className="review__post">{review.post}</p>
+                        <div className="review__card-image">
+                            <EmblaCarousel
+                                images={review.media.map(img => img.route)}
+                                options={options}
+                            />
+                        </div>
                         <Comment reviewId={review._id as string} commentsData={review.comments} />
-                        {/* {
-                            review.media.map(img =>
-                                <img src={img.route}></img>
-                            )
-                        } */}
                     </div>
                 )
             }
