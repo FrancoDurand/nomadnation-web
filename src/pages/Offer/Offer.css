@@ -1,10 +1,12 @@
 .offer {
-    width: 100%;
-    padding: 0 300px;
-    margin: 25px 0;
+    /* width: 100%;
+    padding: 0 300px; */
+    margin: 50px 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 50px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+    align-self: center;
+    justify-content: center;
 }
 
 .offer__image-container .embla {
