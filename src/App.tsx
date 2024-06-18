@@ -6,18 +6,21 @@ import { Home } from './pages/Home'
 import { LoginForm } from './components/LoginForm/LoginForm'
 import { RegisterForm } from './components/RegisterForm/RegisterForm'
 import { Offer } from './pages/Offer/Offer'
+import { LoginContextProvider } from './context/LoginContext'
 
 export function App() {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path='' element={<Home />} />
-        <Route path='/login' element={<LoginForm />} />
-        <Route path='/register' element={<RegisterForm />} />
-        <Route path='/offer/:id' element={<Offer />} />
-      </Routes>
-      <Footer />
+      <LoginContextProvider>
+        <Header />
+        <Routes>
+          <Route path='' element={<Home />} />
+          <Route path='/login' element={<LoginForm />} />
+          <Route path='/register' element={<RegisterForm />} />
+          <Route path='/offer/:id' element={<Offer />} />
+        </Routes>
+        <Footer />
+      </LoginContextProvider>
     </>
   )
 }
