@@ -1,4 +1,6 @@
-import { Button } from "@chakra-ui/react";
+import { Avatar, Button } from "@chakra-ui/react";
+import { useContext } from "react";
+import { LoginContext } from "../../context/LoginContext";
 import "./Header.css";
 
 const registerStyles = {
@@ -20,16 +22,41 @@ const loginStyles = {
 }
 
 export function Header() {
+    const { isLoggedIn, setLoggedIn } = useContext(LoginContext);
+
+    const handleLogOut = () => {
+        setLoggedIn(false);
+    }
+
     return (
         <header className="header">
             <h1 className="header__title" ><a href="/">NomadNation</a></h1>
             <div className="header__buttons">
-                <a href="/login">
-                    <Button {...loginStyles}>Iniciar sesión</Button>
-                </a>
-                <a href="/register">
-                    <Button {...registerStyles}>Registrarse</Button>
-                </a>
+                {
+                    isLoggedIn
+                        ? (
+                            <>
+                                <div className="header__userinfo">
+                                    <Avatar src={sessionStorage.getItem('userProfilePic') as string} />
+                                    <h2 className="header__userinfo-username">{sessionStorage.getItem('userName')}</h2>
+                                </div>
+                                <Button
+                                    {...loginStyles}
+                                    onClick={handleLogOut}
+                                >Cerrar sesión</Button>
+                            </>
+                        )
+                        : (
+                            <>
+                                <a href="/login">
+                                    <Button {...loginStyles}>Iniciar sesión</Button>
+                                </a>
+                                <a href="/register">
+                                    <Button {...registerStyles}>Registrarse</Button>
+                                </a>
+                            </>
+                        )
+                }
             </div>
         </header>
     )
