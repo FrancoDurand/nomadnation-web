@@ -1,9 +1,10 @@
 import { Button, FormControl, FormErrorMessage, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import IUser from "../../interfaces/iuser";
 import { UserService } from "../../services/user-service";
 import "./LoginForm.css";
+import { LoginContext } from "../../context/LoginContext";
 
 const buttonStyles = {
     bg: "#18181c",
@@ -23,7 +24,8 @@ export function LoginForm() {
         email: false,
         password: false,
     });
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { setLoggedIn } = useContext(LoginContext);
 
     const handleBlur = (field: string) => {
         setTouched({
@@ -43,6 +45,7 @@ export function LoginForm() {
                 sessionStorage.setItem('userId', response._id);
                 sessionStorage.setItem('userName', response.name);
                 sessionStorage.setItem('userProfilePic', UserService.getImage(response.profilePic as string));
+                setLoggedIn(true);
             }
 
             navigate("/");
