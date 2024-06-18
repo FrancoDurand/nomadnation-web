@@ -1,9 +1,10 @@
 import { Avatar, Button, FormControl, FormErrorMessage, Input } from "@chakra-ui/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import IUser from "../../interfaces/iuser";
 import { UserService } from "../../services/user-service";
 import "./RegisterForm.css";
+import { LoginContext } from "../../context/LoginContext";
 
 const buttonStyles = {
     bg: "#18181c",
@@ -26,6 +27,7 @@ export function RegisterForm() {
         email: false,
         password: false,
     });
+    const { setLoggedIn } = useContext(LoginContext);
 
     const handleBlur = (field: string) => {
         setTouched({
@@ -45,6 +47,7 @@ export function RegisterForm() {
                 sessionStorage.setItem('userId', response._id);
                 sessionStorage.setItem('userName', response.name);
                 sessionStorage.setItem('userProfilePic', UserService.getImage(response.profilePic as string));
+                setLoggedIn(true);
             }
 
             navigate("/");
