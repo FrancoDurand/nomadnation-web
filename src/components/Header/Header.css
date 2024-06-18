@@ -18,4 +18,18 @@
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    align-items: center;
+    max-height: 54px;
+}
+
+.header__userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header__userinfo-username {
+    color: #fff;
+    font-family: Montserrat;
+    font-weight: 500;
 }
