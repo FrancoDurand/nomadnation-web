@@ -1,6 +1,6 @@
 import { Avatar, Input, InputGroup, InputRightAddon, useToast } from "@chakra-ui/react"
 import { useContext, useState } from "react"
-import { LoginContext } from "../../context/LoginContext"
+import { LoginContext } from "../../contexts/LoginContext"
 import IComment from "../../interfaces/icomment"
 import IReviewPost from "../../interfaces/ireviewpost"
 import { ReviewService } from "../../services/review-service"

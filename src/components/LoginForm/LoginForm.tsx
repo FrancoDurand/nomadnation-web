@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import IUser from "../../interfaces/iuser";
 import { UserService } from "../../services/user-service";
 import "./LoginForm.css";
-import { LoginContext } from "../../context/LoginContext";
+import { LoginContext } from "../../contexts/LoginContext";
 
 const buttonStyles = {
     bg: "#18181c",

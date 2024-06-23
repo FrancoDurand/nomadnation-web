@@ -6,7 +6,7 @@ import { Home } from './pages/Home'
 import { LoginForm } from './components/LoginForm/LoginForm'
 import { RegisterForm } from './components/RegisterForm/RegisterForm'
 import { Offer } from './pages/Offer/Offer'
-import { LoginContextProvider } from './context/LoginContext'
+import { LoginContextProvider } from './contexts/LoginContext'
 
 export function App() {
   return (

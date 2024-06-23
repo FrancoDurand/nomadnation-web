@@ -1,6 +1,6 @@
 import { Avatar, Button } from "@chakra-ui/react";
 import { useContext } from "react";
-import { LoginContext } from "../../context/LoginContext";
+import { LoginContext } from "../../contexts/LoginContext";
 import "./Header.css";
 
 const registerStyles = {
