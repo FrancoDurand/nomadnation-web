@@ -23,7 +23,7 @@ export function EmblaCarousel({ images, options = {}, plugins = [] }: EmblaCarou
             <div className="embla__container">
                 {
                     images.map((src, index) =>
-                        <div className="embla__slide">
+                        <div className="embla__slide" key={index}>
                             <img src={src} alt={"Slide " + (index + 1).toString()} />
                         </div>
                     )

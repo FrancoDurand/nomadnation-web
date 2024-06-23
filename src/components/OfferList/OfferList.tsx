@@ -23,8 +23,8 @@ export function OfferList() {
             <h2 className="offer__title">Conoce nuestras ofertas</h2>
             <div className="offerlist">
                 {
-                    offers?.map((offer: IOffer) =>
-                        <OfferCard {...offer} />
+                    offers?.map((offer: IOffer, index) =>
+                        <OfferCard {...offer} key={index} />
                     )
                 }
             </div>
