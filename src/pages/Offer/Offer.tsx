@@ -1,11 +1,12 @@
-import { useParams } from "react-router-dom"
-import { OfferService } from "../../services/offer-service";
-import { useEffect, useState } from "react";
-import IOffer from "../../interfaces/ioffer";
-import { Review } from "../../components/Review/Review";
-import { EmblaCarousel } from "../../components/Carousel/Carousel";
-import "./Offer.css"
 import Autoplay from "embla-carousel-autoplay";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { EmblaCarousel } from "../../components/Carousel/Carousel";
+import { Review } from "../../components/Review/Review";
+import { ReviewContextProvider } from "../../context/ReviewContext";
+import IOffer from "../../interfaces/ioffer";
+import { OfferService } from "../../services/offer-service";
+import "./Offer.css";
 
 const options = {
     loop: true,
@@ -17,12 +18,14 @@ const plugins = [
 
 export function Offer() {
     const { id } = useParams();
+
     const [offerData, setOfferData] = useState<IOffer>();
 
     useEffect(() => {
         const fetchOffer = async () => {
             if (id) {
                 const data = await OfferService.getOfferById(id);
+
                 if (data)
                     setOfferData(data);
             }
@@ -32,7 +35,7 @@ export function Offer() {
     }, []);
 
     return (
-        <>
+        <ReviewContextProvider>
             <div className="offer">
                 <div className="offer__image-container">
                     {offerData?.images && (
@@ -52,6 +55,6 @@ export function Offer() {
                 </div>
             </div>
             <Review />
-        </>
+        </ReviewContextProvider>
     )
 }
