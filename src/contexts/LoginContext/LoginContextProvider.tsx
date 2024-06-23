@@ -1,18 +1,6 @@
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, useState } from 'react';
+import { LoginContext, LoginContextType } from './LoginContext';
 
-// Definir el tipo del contexto
-type LoginContextType = {
-    isLoggedIn: boolean;
-    setLoggedIn: (val: boolean) => void;
-}
-
-// Crear el contexto con valores predeterminados
-export const LoginContext = createContext<LoginContextType>({
-    isLoggedIn: false,
-    setLoggedIn: () => { },
-});
-
-// Definir el proveedor del contexto usando React.FC
 export function LoginContextProvider({ children }: { children: ReactNode }) {
     const [isLoggedIn, setLoggedIn] = useState<boolean>(() => {
         const saved = sessionStorage.getItem("userId");

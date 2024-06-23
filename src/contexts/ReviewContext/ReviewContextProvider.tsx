@@ -1,35 +1,8 @@
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { ReviewContext, ReviewContextType } from './ReviewContext';
+import IReview from '../../interfaces/ireview';
 
-// Definir el tipo del contexto
-type ReviewContextType = {
-    media: FileList | null;
-    setMedia: (media: FileList) => void;
-    offer: string;
-    setOffer: (offerId: string) => void;
-    author: string;
-    setAuthor: (authorId: string) => void;
-    title: string;
-    setTitle: (title: string) => void;
-    post: string;
-    setPost: (post: string) => void
-}
-
-// Crear el contexto con valores predeterminados
-export const ReviewContext = createContext<ReviewContextType>({
-    media: null,
-    setMedia: () => { },
-    offer: "",
-    setOffer: () => { },
-    author: "",
-    setAuthor: () => { },
-    title: "",
-    setTitle: () => { },
-    post: "",
-    setPost: () => { }
-});
-
-// Definir el proveedor del contexto usando React.FC
 export function ReviewContextProvider({ children }: { children: ReactNode }) {
     const { id } = useParams();
 
@@ -43,6 +16,7 @@ export function ReviewContextProvider({ children }: { children: ReactNode }) {
     });
     const [title, setTitle] = useState<string>("");
     const [post, setPost] = useState<string>("");
+    const [reviews, setReviews] = useState<IReview[]>([]);
 
     const ReviewContextValue: ReviewContextType = {
         media,
@@ -54,7 +28,9 @@ export function ReviewContextProvider({ children }: { children: ReactNode }) {
         title,
         setTitle,
         post,
-        setPost
+        setPost,
+        reviews,
+        setReviews
     }
 
     return (
