@@ -1,11 +1,12 @@
-import { useParams } from "react-router-dom"
+import { Avatar } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import IReview from "../../interfaces/ireview";
 import { ReviewService } from "../../services/review-service";
-import { Avatar } from "@chakra-ui/react";
-import "./Review.css"
-import { Comment } from "../Comment/Comment";
 import { EmblaCarousel } from "../Carousel/Carousel";
+import { Comment } from "../Comment/Comment";
+import { ModalReview } from "../ModalReview/ModalReview";
+import "./Review.css";
 
 const options = {
     loop: true
@@ -14,6 +15,7 @@ const options = {
 export function Review() {
     const { id } = useParams();
     const [reviewData, setReviewData] = useState<IReview[]>();
+
     useEffect(() => {
         const fetchOffer = async () => {
             if (id) {
@@ -25,10 +27,12 @@ export function Review() {
         fetchOffer();
     }, []);
 
-
     return (
         <div className="review">
-            <h2>Reseñas</h2>
+            <div className="review__header">
+                <h2>Reseñas</h2>
+                <ModalReview />
+            </div>
             {
                 reviewData?.map(review =>
                     <div className="review__card">
