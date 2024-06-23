@@ -1,9 +1,10 @@
-import { Avatar, Input, InputGroup, InputRightAddon } from "@chakra-ui/react"
-import { useState } from "react"
+import { Avatar, Input, InputGroup, InputRightAddon, useToast } from "@chakra-ui/react"
+import { useContext, useState } from "react"
+import { LoginContext } from "../../context/LoginContext"
 import IComment from "../../interfaces/icomment"
 import IReviewPost from "../../interfaces/ireviewpost"
-import "./Comment.css"
 import { ReviewService } from "../../services/review-service"
+import "./Comment.css"
 
 const inputButtonStyles = {
     cursor: "pointer",
@@ -19,8 +20,23 @@ const inputButtonStyles = {
 export function Comment({ reviewId, commentsData }: { reviewId: string, commentsData: IComment[] }) {
     const [comments, setComments] = useState<IComment[]>(commentsData);
     const [comment, setComment] = useState("");
+    const { isLoggedIn } = useContext(LoginContext);
+
+    const toast = useToast();
 
     const handleClick = async () => {
+        if (!isLoggedIn) {
+            toast({
+                title: 'Sesión no iniciada',
+                description: 'Debes iniciar sesión para comentar',
+                status: 'error',
+                duration: 5000,
+                isClosable: true,
+            })
+
+            return;
+        }
+
         const newComment: IReviewPost = {
             _id: reviewId,
             comments: [
