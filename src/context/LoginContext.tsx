@@ -14,7 +14,10 @@ export const LoginContext = createContext<LoginContextType>({
 
 // Definir el proveedor del contexto usando React.FC
 export function LoginContextProvider({ children }: { children: ReactNode }) {
-    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [isLoggedIn, setLoggedIn] = useState<boolean>(() => {
+        const saved = sessionStorage.getItem("userId");
+        return saved != null ? true : false;
+    });
 
     const LoginContextValue: LoginContextType = {
         isLoggedIn,
