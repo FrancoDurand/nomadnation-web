@@ -1,6 +1,7 @@
 import { Avatar } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { ReviewContext } from "../../contexts/ReviewContext/ReviewContext";
 import IReview from "../../interfaces/ireview";
 import { ReviewService } from "../../services/review-service";
 import { EmblaCarousel } from "../Carousel/Carousel";
@@ -14,18 +15,19 @@ const options = {
 
 export function Review() {
     const { id } = useParams();
-    const [reviewData, setReviewData] = useState<IReview[]>();
+    const { reviews, setReviews } = useContext(ReviewContext);
 
     useEffect(() => {
         const fetchOffer = async () => {
             if (id) {
                 const data = await ReviewService.getByOffer(id);
-                setReviewData(data);
+                console.log(data);
+                setReviews(data as IReview[]);
             }
         };
 
         fetchOffer();
-    }, []);
+    }, [reviews]);
 
     return (
         <div className="review">
@@ -34,7 +36,7 @@ export function Review() {
                 <ModalReview />
             </div>
             {
-                reviewData?.map(review =>
+                reviews?.map(review =>
                     <div className="review__card">
                         <div className="review__card-author">
                             <Avatar src={review.author.profilePic as string} />
