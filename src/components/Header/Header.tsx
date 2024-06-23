@@ -26,6 +26,7 @@ export function Header() {
 
     const handleLogOut = () => {
         setLoggedIn(false);
+        sessionStorage.removeItem("userId");
     }
 
     return (
