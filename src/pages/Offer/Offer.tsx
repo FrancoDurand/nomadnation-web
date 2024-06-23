@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { EmblaCarousel } from "../../components/Carousel/Carousel";
 import { Review } from "../../components/Review/Review";
-import { ReviewContextProvider } from "../../contexts/ReviewContext";
+import { ReviewContextProvider } from "../../contexts/ReviewContext/ReviewContextProvider";
 import IOffer from "../../interfaces/ioffer";
 import { OfferService } from "../../services/offer-service";
 import "./Offer.css";

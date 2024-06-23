@@ -1,7 +1,7 @@
 import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Textarea, useDisclosure, useToast } from "@chakra-ui/react";
 import { useContext, useRef, useState } from "react";
-import { LoginContext } from "../../contexts/LoginContext";
-import { ReviewContext } from "../../contexts/ReviewContext";
+import { LoginContext } from "../../contexts/LoginContext/LoginContext";
+import { ReviewContext } from "../../contexts/ReviewContext/ReviewContext";
 import { ReviewService } from "../../services/review-service";
 import "./ModalReview.css";
 
