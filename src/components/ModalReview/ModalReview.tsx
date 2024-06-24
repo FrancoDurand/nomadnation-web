@@ -4,6 +4,8 @@ import { LoginContext } from "../../contexts/LoginContext/LoginContext";
 import { ReviewContext } from "../../contexts/ReviewContext/ReviewContext";
 import { ReviewService } from "../../services/review-service";
 import "./ModalReview.css";
+import { useParams } from "react-router-dom";
+import IReview from "../../interfaces/ireview";
 
 const buttonStyles = {
     bg: "#18181c",
@@ -16,6 +18,7 @@ const buttonStyles = {
 }
 
 export function ModalReview() {
+    const { id } = useParams();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const fileInputRef = useRef<HTMLInputElement>(null);
     const { offer } = useContext(ReviewContext);
@@ -23,6 +26,7 @@ export function ModalReview() {
     const { post, setPost } = useContext(ReviewContext);
     const { media, setMedia } = useContext(ReviewContext);
     const { author } = useContext(ReviewContext);
+    const { setReviews } = useContext(ReviewContext);
     const [mediaPreviewUrl, setMediaPreviewUrl] = useState<string | null>(null);
 
     const { isLoggedIn } = useContext(LoginContext);
@@ -61,6 +65,12 @@ export function ModalReview() {
                     duration: 5000,
                     isClosable: true,
                 })
+
+            if (id) {
+                const data = await ReviewService.getByOffer(id);
+                console.log(data);
+                setReviews(data as IReview[]);
+            }
         }
         catch (e) {
             toast({

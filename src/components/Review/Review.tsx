@@ -27,7 +27,7 @@ export function Review() {
         };
 
         fetchOffer();
-    }, [reviews]);
+    }, []);
 
     return (
         <div className="review">
