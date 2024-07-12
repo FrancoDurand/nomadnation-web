@@ -1,15 +1,17 @@
 .offer__title {
-    margin-top: 50px;
-    margin-left: 283px;
     font-family: Montserrat;
     font-size: 25px;
     font-weight: 600;
+    width: 75vw;
+    text-align: center;
+    margin: 25px auto 12.5px;
 }
 
 .offerlist {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 45px;
-    margin: 50px 100px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    width: 75vw;
+    margin: 12.5px auto 25px;
+    gap: 50px 0px;
+    justify-items: center;
 }
