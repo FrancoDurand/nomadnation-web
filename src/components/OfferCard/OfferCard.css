@@ -16,7 +16,6 @@
 .offercard__image--container {
     width: 415px;
     height: 190px;
-
 }
 
 .offercard__image-container .embla {
@@ -55,4 +54,21 @@
 
 .offercard__description .offercard__price {
     font-family: 16px;
+}
+
+@media (width <=375px) {
+    .offercard {
+        width: 100%;
+    }
+}
+
+@media (width <=320px) {
+    .offercard {
+        width: 100%;
+    }
+
+    .offercard__image-container .embla img {
+        object-fit: contain;
+        object-position: left;
+    }
 }
