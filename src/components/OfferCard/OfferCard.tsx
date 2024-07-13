@@ -3,6 +3,7 @@ import IOffer from "../../interfaces/ioffer";
 import { EmblaCarousel } from "../Carousel/Carousel";
 import "./OfferCard.css";
 import Autoplay from "embla-carousel-autoplay";
+import { Link } from "react-router-dom";
 
 const options = {
     loop: true,
@@ -34,7 +35,7 @@ export function OfferCard({ ...offer }: IOffer) {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <a href={`/offer/${offer._id}`}>
+            <Link to={`/offer/${offer._id}`}>
                 <div className="offercard__image-container">
                     <EmblaCarousel
                         images={offer.images}
@@ -47,7 +48,7 @@ export function OfferCard({ ...offer }: IOffer) {
                     <p className="offercard__description">{offer.description}</p>
                     <p className="offercard__price">Desde S/{offer.price}</p>
                 </div>
-            </a>
+            </Link>
         </div>
     )
 }

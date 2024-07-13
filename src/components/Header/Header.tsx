@@ -2,6 +2,7 @@ import { Avatar, Button } from "@chakra-ui/react";
 import { useContext } from "react";
 import { LoginContext } from "../../contexts/LoginContext/LoginContext";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 const registerStyles = {
     bg: "#edf2f7",
@@ -31,7 +32,7 @@ export function Header() {
 
     return (
         <header className="header">
-            <h1 className="header__title" ><a href="/">NomadNation</a></h1>
+            <h1 className="header__title" ><Link to="/">NomadNation</Link ></h1>
             <div className="header__buttons">
                 {
                     isLoggedIn
@@ -49,12 +50,12 @@ export function Header() {
                         )
                         : (
                             <>
-                                <a href="/login">
+                                <Link to="/login">
                                     <Button {...loginStyles}>Iniciar sesión</Button>
-                                </a>
-                                <a href="/register">
+                                </Link>
+                                <Link to="/register">
                                     <Button {...registerStyles}>Registrarse</Button>
-                                </a>
+                                </Link>
                             </>
                         )
                 }
