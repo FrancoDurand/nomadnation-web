@@ -67,3 +67,24 @@
     object-position: center;
     object-fit: fill;
 }
+
+@media (width <=768px) {
+    .review {
+        margin: 0 5%;
+    }
+}
+
+@media (width <=425px) {
+    .review__card-image {
+        aspect-ratio: 16/9;
+        width: 100%;
+        height: auto;
+    }
+
+    .review__card-image .embla img {
+        aspect-ratio: 16/9;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
