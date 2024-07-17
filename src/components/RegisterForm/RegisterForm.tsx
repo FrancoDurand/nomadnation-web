@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import IUser from "../../interfaces/iuser";
 import { UserService } from "../../services/user-service";
-import "./RegisterForm.css";
+import styles from "./RegisterForm.module.css";
 import { LoginContext } from "../../contexts/LoginContext/LoginContext";
 
 const buttonStyles = {
@@ -65,11 +65,11 @@ export function RegisterForm() {
     }
 
     return (
-        <div className="form__container">
-            <form className="form" onSubmit={handleSubmit}>
-                <label className="form__title">Únete</label>
-                <div className="form__inputs-register">
-                    <label htmlFor="avatar" className="form__inputs-avatar">
+        <div className={styles.form__container}>
+            <form className={styles.form} onSubmit={handleSubmit}>
+                <label className={styles.form__title}>Únete</label>
+                <div className={styles["form__inputs-register"]}>
+                    <label htmlFor="avatar" className={styles["form__inputs-avatar"]}>
                         <input
                             type="file"
                             id="avatar"
@@ -80,7 +80,7 @@ export function RegisterForm() {
                         />
                         <Avatar size="xl" src={profilePic ? URL.createObjectURL(profilePic) : ""} />
                     </label>
-                    <FormControl isInvalid={touched.name && !name} className="form__control">
+                    <FormControl isInvalid={touched.name && !name} className={styles.form__control}>
                         <Input
                             placeholder='Nombre'
                             width='auto'
@@ -94,7 +94,7 @@ export function RegisterForm() {
                             <FormErrorMessage>El nombre es requerido.</FormErrorMessage>
                         }
                     </FormControl>
-                    <FormControl isInvalid={touched.email && !email} className="form__control">
+                    <FormControl isInvalid={touched.email && !email} className={styles.form__control}>
                         <Input
                             placeholder='Email'
                             width='auto'
@@ -108,7 +108,7 @@ export function RegisterForm() {
                             <FormErrorMessage>El email es requerido.</FormErrorMessage>
                         }
                     </FormControl>
-                    <FormControl isInvalid={touched.password && !password} className="form__control">
+                    <FormControl isInvalid={touched.password && !password} className={styles.form__control}>
                         <Input
                             placeholder='Contraseña'
                             width='auto'
